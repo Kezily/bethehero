@@ -12,8 +12,10 @@ npm install
 ```
 
 ## Technologies
-- Express - Server framework
-- Nunjucks - Templating engine
 - NodeJs - Server enviroment
+- React
+- ReactNative
+- Express - Server framework
+- Expo -
 - Sass - CSS pre-processor
 - Gulp - Task runner
