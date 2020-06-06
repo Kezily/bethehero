@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiArrowLeft } from 'react-icons/fi';
+import { FiArrowLeft, FiLogIn } from 'react-icons/fi';
 
 import './styles.css';
 
 import logoImg from '../../assets/logo.svg';
+import erroImg from '../../assets/error.png';
 import api from '../../services/api';
 
 export default function Profile() {
@@ -12,7 +13,7 @@ export default function Profile() {
    const [description, setDescription] = useState('');
    const [value, setValue] = useState('');
 
-   const ongID = localStorage.getItem('ongId');
+   const ongId = localStorage.getItem('ongId');
 
    const history = useHistory();
 
@@ -28,7 +29,7 @@ export default function Profile() {
       try {
          await api.post('incidents', data, {
             headers: {
-               Authorization: ongID
+               Authorization: ongId
             }
          });
 
@@ -36,6 +37,24 @@ export default function Profile() {
       } catch (err) {
          alert('Erro ao cadastrar caso, tente novamente');
       }
+   }
+
+   if(!ongId) {
+      return (
+         <div className="new-incident-container">
+            <div className="content">
+               <section>
+                  <img src={logoImg} alt="Be The Hero"/>
+                  <h1>Erro</h1>
+                  <p>Você não tem permissão para acessar esta página.</p>
+
+                  <Link to="/" className="back-link"><FiLogIn size={16} color="#E02041" /> Fazer logon</Link>
+               </section>
+
+               <img src={erroImg} width="100%" alt="Be The Hero"/>
+            </div>
+         </div>
+      );
    }
 
    return (

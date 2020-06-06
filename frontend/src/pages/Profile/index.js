@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import { FiPower, FiTrash2 } from 'react-icons/fi';
+import { FiPower, FiTrash2, FiLogIn } from 'react-icons/fi';
 
 import api from '../../services/api';
 
@@ -45,6 +45,22 @@ export default function Profile() {
       history.push('/');
    }
 
+   if(!ongId) {
+      return (
+         <div className="new-incident-container">
+            <div className="content">
+               <section>
+                  <img src={logoImg} alt="Be The Hero"/>
+                  <h1>Erro</h1>
+                  <p>Você não tem permissão para acessar esta página.</p>
+
+                  <Link to="/" className="back-link"><FiLogIn size={16} color="#E02041" /> Fazer logon</Link>
+               </section>
+            </div>
+         </div>
+      );
+   }
+   
    return (
       <div className="profile-container">
          <header>
