@@ -1,6 +1,6 @@
 # Be The Hero
 
-A recipes web page using NodeJs, SASS and Gulp. Challenge project provided by RocketSeat's Launchbase course
+Application to connect people interested in helping NGOs. Challenge project provided by 11º RocketSeat Omnistack.
 
 
 ## Installation
@@ -12,10 +12,8 @@ npm install
 ```
 
 ## Technologies
-- NodeJs - Server enviroment
+- NodeJs
 - React
 - ReactNative
-- Express - Server framework
-- Expo -
-- Sass - CSS pre-processor
-- Gulp - Task runner
+- Expo
+- Axios
