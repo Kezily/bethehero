@@ -17,3 +17,4 @@ npm install
 - ReactNative
 - Expo
 - Axios
+- Celebrate
